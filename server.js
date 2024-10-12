@@ -3,12 +3,29 @@ require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
-
+const helmet      = require('helmet');
+const mongoose    = require('mongoose'); // Adiciona Mongoose para conexão com o MongoDB
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 const app = express();
+
+// Conectando ao MongoDB
+mongoose.connect(process.env.DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Conectado ao MongoDB'))
+.catch(err => console.error('Erro ao conectar ao MongoDB:', err));
+
+app.use(helmet());
+// This sets custom options for the `referrerPolicy` middleware.
+app.use(
+  helmet({
+    referrerPolicy: { policy: "same-origin" },
+  })
+);
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
@@ -47,16 +64,17 @@ app.use(function(req, res, next) {
 });
 
 //Start our server and tests!
-const listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Listening on port " + process.env.PORT);
   if(process.env.NODE_ENV==='test') {
     console.log('Running Tests...');
     setTimeout(function () {
       try {
         runner.run();
       } catch(e) {
-        console.log('Tests are not valid:');
-        console.error(e);
+        var error = e;
+          console.log('Tests are not valid:');
+          console.log(error);
       }
     }, 1500);
   }

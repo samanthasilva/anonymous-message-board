@@ -1,36 +1,276 @@
-* {
-  margin: 0px;
-  padding: 0px;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-body {
+header {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #ee0979;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.275);
+}
+
+header h1 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: montserrat, arial, verdana;
+  margin-top: 20px;
+}
+
+header a {
+  font-size: 10px;
+  color: #03eefff6;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: montserrat, arial, verdana;
+}
+
+h3,h4 {
+  font-size: 14px;
+  color: #2C3E50;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: montserrat, arial, verdana;
+  margin-top: 20px;
+}
+
+section {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Button Styles */
+button, input[type="submit"] {
+  width: 100px;
+  background: #ee0979;
+  font-weight: bold;
+  color: #fff;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 30px;
+  font-size: 11px;
+   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 
+              0 1px 1px 0 rgba(0, 0, 0, 0.14), 
+              0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #d70969;
+}
+
+/* Thread and Reply Styles */
+.thread-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.thread-item, .reply-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.thread-item h3 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.thread-item p, .reply-item p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.reply-item {
+  background-color: #f9f9f9;
+  border-radius: 5px;
   padding: 10px;
 }
 
-.replies {
-  margin-left: 50px;
+.thread-actions {
+  display: flex;
+  gap: 10px;
 }
 
-.reply {
-  border: 1px dotted black;
-  margin: 5px;
-  padding: 5px;
+.reply-item .btn-report-reply, .reply-item .btn-delete-reply, 
+.thread-actions .btn-report, .thread-actions .btn-delete {
+  background-color: transparent;
+  color: #ee0979;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.newReply {
-  margin: 10px 5px 10px 5px;
+.reply-item .btn-report-reply:hover, .reply-item .btn-delete-reply:hover,
+.thread-actions .btn-report:hover, .thread-actions .btn-delete:hover {
+  color: #d70969;
 }
 
-.thread {
-  border: 2px solid black;
-  padding: 5px;
-  margin-bottom: 5px;
+form {
+  margin: 20px 0;
 }
 
-.id {
-  font-size: 10.5px;
+input[type="text"], input[type="password"], textarea {
+  font-size: 11px;
+  margin-left: 8px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  border-bottom: 1px solid #ee0979;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-left-color: transparent !important;
+  padding: 15px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  font-family: montserrat;
+  text-align: left;
+  color: #ee0979;
 }
 
-#submitNewThread {
-  margin: 50px;
+
+input[type="password"]:focus, 
+input[type="text"]:focus, 
+textarea:focus {
+  outline: none; /* Remove o contorno padrão */
+  border-bottom: 2px solid #ee0979; /* Borda inferior rosa */
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: #fff; /* Certifique-se de que o fundo fique branco */
+  color: #ee0979; /* Cor do texto rosa */
+  box-shadow: none; /* Remove sombras padrão se houver */
+}
+
+textarea {
+  resize: none;
+}
+
+/* Section for Action Cards */
+.action-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  background: white;
+  border: 0 none;
+  border-radius: 6px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  margin: 0 4% 0 2%;
+  position: relative;
+  margin-top: 35px !important;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 1000px;
+  text-align: center;
+  margin: 30px;
+}
+}
+
+.action-card h4 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.action-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-card input[type="text"], .action-card input[type="password"], .action-card textarea {
+  margin-bottom: 15px;
+}
+
+.action-card input[type="submit"] {
+  align-self: flex-start;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  .action-card {
+    max-width: 100%;
+  }
+
+  .thread-item h3 {
+    font-size: 1.2em;
+  }
+  
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+  }
+}
+
+footer {
+  font-family: montserrat, arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  border-top: 2px solid #d90f6a;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); 
+  font-weight: normal;
+  position: relative;
+  text-align: center;
+  position: fixed;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  z-index: 10;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 100; 
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.cute-footer p {
+  margin: 5px 0;
+  font-size: 10px;
+}
+
+.cute-footer a {
+  color: #d90f6a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cute-footer .heart-link {
+  color: #d90f6a; 
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cute-footer .heart-link:hover {
+  transform: scale(1.2); 
 }
